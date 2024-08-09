@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: account
+  datasource:
+    url: ${ACCOUNT_URL:jdbc:postgresql://localhost:5432/account}
+    username: ${ACCOUNT_USERNAME:account}
+    password: ${ACCOUNT_PASSWORD:account}
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        jdbc:
+          batch_size: 100
+
+app:
+  security:
+    jwt:
+      token:
+        secret-key: ${SECRET:JKLADFicu9uwcmJMKHERAasda657654iw3asmoc35uc5unavyzskhdzuvhUJHKHJKRGA}
+        expire-length: 720
